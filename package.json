@@ -1,0 +1,21 @@
+{
+  "name": "string_calculator",
+  "version": "1.0.0",
+  "description": "String calculator",
+  "main": "dist/src/index.js",
+  "scripts": {
+    "start-j": "nodemon ./dist/index.js",
+    "start": "nodemon ./src/index.ts",
+    "build": "tsc -p .",
+    "test": "jest --config jest.config.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "jest": "^29.0.0",
+    "nodemon": "^3.1.9",
+    "ts-jest": "^29.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.0.0"
+  }
+}
