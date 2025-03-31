@@ -46,3 +46,10 @@ test("should handle an unknown amount of numbers", () => {
 test("should handle custom delimiter", () => {
   expect(StringCalculator.Add("//@\n1@2@3,1\n2")).toBe(9);
 });
+
+// Test for custom delimiters with multiple chars
+test("should handle custom delimiters with multiple chars", () => {
+  expect(
+    StringCalculator.Add("//[!!!][%%][::*][$#@]\n1!!!2::*3,1\n2%%3!!!5$#@3")
+  ).toBe(20);
+});
