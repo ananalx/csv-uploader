@@ -21,24 +21,21 @@ class StringCalculator {
       const customDelimiter = numbers.substring(2, delimiterEndIndex);
       numbers = numbers.substring(delimiterEndIndex + 1);
 
+      // Check for multiple delimiters
       if (customDelimiter.startsWith("[") && customDelimiter.endsWith("]")) {
         customDelimiter
           .slice(1, -1)
           .split("][")
           .forEach((d) => {
             numbers = numbers.replaceAll(d, ",");
-            console.log("numberseach", numbers, d);
           });
-        console.log("numbers1", numbers);
       } else {
         numbers = numbers.replaceAll(customDelimiter, ",");
-        console.log("numbers2", numbers);
       }
     }
 
     // Split the input string by delimiter and convert to numbers
     const numArray = numbers.split(delimiter).map((n) => Number(n));
-    console.log("array", numArray);
 
     // Check for negative numbers and throw an error if found
     const negatives = numArray.filter((n) => n < 0);
