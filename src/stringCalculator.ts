@@ -14,8 +14,11 @@ class StringCalculator {
     // Return 0 for an empty string
     if (!numbers) return 0;
 
-    // Split the input string by , and convert to numbers
-    const numArray = numbers.split(",").map((n) => Number(n));
+    let delimiter = new RegExp(",|\n")
+
+    // Split the input string by delimiter and convert to numbers
+    const numArray = numbers.split(delimiter).map((n) => Number(n));
+    console.log('array',numArray)
 
     // Check for negative numbers and throw an error if found
     const negatives = numArray.filter((n) => n < 0);

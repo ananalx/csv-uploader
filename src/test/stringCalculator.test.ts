@@ -26,6 +26,18 @@ test("should handle an unknown amount of numbers", () => {
 });
 
 // Test for filtering numbers > 1000
+test("should filter numbers > 1000", () => {
+  expect(StringCalculator.Add("1001")).toBe(0);
+});
+
+// Test for negative numbers throwing an exception
+test("should throw exception for negative numbers", () => {
+  expect(() => StringCalculator.Add("1,2\n3\n8,-2,-55")).toThrow(
+    "negatives not allowed: -2, -55"
+  );
+});
+
+// Test for delimiter \n
 test("should handle an unknown amount of numbers", () => {
-    expect(StringCalculator.Add("1001")).toBe(0);
-  });
+  expect(StringCalculator.Add("1,2\n3,4\n5")).toBe(15);
+});
