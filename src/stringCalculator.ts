@@ -14,11 +14,19 @@ class StringCalculator {
     // Return 0 for an empty string
     if (!numbers) return 0;
 
-    let delimiter = new RegExp(",|\n")
+    let delimiter = new RegExp(",|\n");
+
+    if (numbers.startsWith("//")) {
+      const delimiterEndIndex = numbers.indexOf("\n");
+      const customDelimiter = numbers.substring(2, delimiterEndIndex);
+      numbers = numbers.substring(delimiterEndIndex + 1);
+      numbers = numbers.replace(new RegExp(customDelimiter, "g"), ",");
+      // console.log("numbers", numbers);
+    }
 
     // Split the input string by delimiter and convert to numbers
     const numArray = numbers.split(delimiter).map((n) => Number(n));
-    console.log('array',numArray)
+    // console.log("array", numArray);
 
     // Check for negative numbers and throw an error if found
     const negatives = numArray.filter((n) => n < 0);

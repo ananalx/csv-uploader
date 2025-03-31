@@ -41,3 +41,8 @@ test("should throw exception for negative numbers", () => {
 test("should handle an unknown amount of numbers", () => {
   expect(StringCalculator.Add("1,2\n3,4\n5")).toBe(15);
 });
+
+// Test for custom delimiter
+test("should handle custom delimiter", () => {
+  expect(StringCalculator.Add("//@\n1@2@3,1\n2")).toBe(9);
+});
